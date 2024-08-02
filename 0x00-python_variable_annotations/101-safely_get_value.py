@@ -2,6 +2,7 @@
 ''' More involved type annotations'''
 
 from typing import Mapping, Any, Union, TypeVar
+
 T = TypeVar('T')
 
 
