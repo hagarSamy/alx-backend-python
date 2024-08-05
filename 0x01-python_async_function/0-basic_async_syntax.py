@@ -7,7 +7,7 @@ seconds and eventually returns it.
 """
 
 
-async def wait_random(max_delay: int = 10):
+async def wait_random(max_delay: int = 10) -> float:
     """Async function that returns a random number after waiting """
     from random import uniform
     import asyncio
