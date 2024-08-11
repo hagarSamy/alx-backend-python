@@ -10,7 +10,7 @@ from typing import List
 
 
 async def wait_n(n: int, max_delay: int = 10) -> List[float]:
-    """Async function that returns a random number after waiting """
+    """Async function that returns a list of wait times"""
     wait_random = __import__('0-basic_async_syntax').wait_random
     import asyncio
     tasks = [asyncio.create_task(wait_random(max_delay)) for _ in range(n)]
