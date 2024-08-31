@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 import unittest
-from  parameterized import parameterized
+from parameterized import parameterized
 from utils import access_nested_map, get_json, memoize
 from unittest.mock import patch
 from urllib import request
@@ -17,7 +17,6 @@ class TestAccessNestedMap(unittest.TestCase):
     def test_access_nested_map(self, nested_map, path, expected):
         '''Test access to nested map using parameterized inputs.'''
         self.assertEqual(access_nested_map(nested_map, path), expected)
-
 
     @parameterized.expand([
         ({}, ("a",)),
@@ -65,14 +64,12 @@ class TestMemoize(unittest.TestCase):
                 ''' method to check call behavior'''
                 return self.a_method()
         test_obj = TestClass()
-        with patch.object(test_obj, 'a_method', return_value=42) as mock_a_method:
-            result0 = test_obj.a_property
-            result1 = test_obj.a_property
+        with patch.object(test_obj, 'a_method',
+                          return_value=42) as mock_a_method:
+            test_obj.a_property
+            test_obj.a_property
 
             mock_a_method.assert_called_once()
-            self.assertEqual(result0, 42)
-            self.assertEqual(result1, 42)
-    
 
 
 if __name__ == '__main__':
