@@ -50,7 +50,7 @@ class TestGetJson(unittest.TestCase):
 
 class TestMemoize(unittest.TestCase):
     '''Test case for memoize from utils'''
-    @patch('')
+
     def test_memoize(self):
         # Define the TestClass within the test method
         class TestClass:
