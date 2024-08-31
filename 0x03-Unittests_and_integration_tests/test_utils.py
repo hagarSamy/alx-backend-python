@@ -11,16 +11,21 @@ class TestAccessNestedMap(unittest.TestCase):
         ({"a": 1}, ("a",), 1),
         ({"a": {"b": 2}}, ("a",), {"b": 2}),
         ({"a": {"b": 2}}, ("a", "b"), 2),
-        ({}, ("a",),),
-        ({"a": 1}, ("a", "b"),),
     ])
     def test_access_nested_map(self, nested_map, path, expected):
         '''Test access to nested map using parameterized inputs.'''
-        if expected is None:
-            with self.assertRaises(KeyError):
-                access_nested_map(nested_map, path)
-        else:
-            self.assertEqual(access_nested_map(nested_map, path), expected)
+        self.assertEqual(access_nested_map(nested_map, path), expected)
+
+
+    @parameterized.expand([
+        ({}, ("a",), None),
+        ({"a": 1}, ("a", "b"), None),
+    ])
+    def test_access_nested_map_exception(self, nested_map, path):
+        ''' test exceptions in a nested map'''
+        with self.assertRaises(KeyError):
+            access_nested_map(nested_map, path)
+
 
 if __name__ == '__main__':
     unittest.main()
