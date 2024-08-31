@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+'''A module to handle different test concepts'''
 
 import unittest
 from parameterized import parameterized
